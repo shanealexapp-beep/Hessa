@@ -9,7 +9,8 @@ import {
   Globe2, 
   Dices, 
   Sparkles,
-  Plus
+  Plus,
+  Palette
 } from 'lucide-react';
 import { Tournament, UserMajlisProfile } from '../types';
 
@@ -29,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCustomizer
 }) => {
   return (
-    <header className="sticky top-0 z-50 border-b border-[#4D6A6D]/20 bg-[#060b18]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#4D6A6D]/30 bg-[#060b18]/95 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
           
@@ -45,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-xl tracking-wider text-white">FAREEG</span>
+                <span className="font-extrabold text-xl tracking-wider text-[#EAE0CC]">FAREEG</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded font-black bg-[#D4AF37] text-[#060b18]">AI</span>
               </div>
               <p className="text-[9px] tracking-widest uppercase text-[#A0A083] -mt-0.5">Emirati & World Games Arena</p>
@@ -53,13 +54,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-300">
+          <nav className="hidden lg:flex items-center gap-1 text-sm font-semibold text-[#A0A083]">
             <button
               onClick={() => onNavigate('dashboard')}
-              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'dashboard'
-                  ? 'bg-white/10 text-white shadow-inner font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] shadow-md font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               Dashboard
@@ -67,10 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('explorer')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'explorer'
-                  ? 'bg-[#4D6A6D] text-[#EAE0CC] shadow-md font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] shadow-md font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               <Globe2 className="w-4 h-4 text-[#A0A083]" />
@@ -79,10 +80,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('surpriseme')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'surpriseme'
-                  ? 'bg-[#C9ADA1]/20 text-[#EAE0CC] border border-[#C9ADA1]/40 font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#C9ADA1]/30 text-[#EAE0CC] border border-[#C9ADA1]/40 font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               <Dices className="w-4 h-4 text-[#C9ADA1]" />
@@ -91,10 +92,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('creator')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'creator'
-                  ? 'bg-[#D4AF37]/20 text-[#EAE0CC] border border-[#D4AF37]/40 font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#D4AF37]/25 text-[#EAE0CC] border border-[#D4AF37]/40 font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               <Sparkles className="w-4 h-4 text-[#D4AF37]" />
@@ -103,10 +104,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('camera-arena')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'camera-arena' || currentTab === 'match-setup'
-                  ? 'bg-white/10 text-white font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               <Video className="w-4 h-4 text-[#D4AF37]" />
@@ -115,10 +116,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('tournaments')}
-              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'tournaments' || currentTab === 'tournament-setup'
-                  ? 'bg-white/10 text-white font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               Tournaments
@@ -126,10 +127,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('leaderboard')}
-              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'leaderboard'
-                  ? 'bg-white/10 text-white font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               Scores
@@ -137,10 +138,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => onNavigate('vision-docs')}
-              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl transition-colors cursor-pointer ${
                 currentTab === 'vision-docs'
-                  ? 'bg-white/10 text-white font-bold'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#4D6A6D] text-[#EAE0CC] font-extrabold'
+                  : 'text-[#A0A083] hover:text-[#EAE0CC] hover:bg-[#4D6A6D]/20'
               }`}
             >
               Vision API
@@ -152,10 +153,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {activeTournament ? (
               <div 
                 onClick={() => onNavigate('leaderboard')}
-                className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#4D6A6D]/20 border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs font-medium cursor-pointer hover:bg-[#4D6A6D]/30 transition-colors"
+                className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#4D6A6D]/30 border border-[#798478]/40 text-[#EAE0CC] text-xs font-medium cursor-pointer hover:bg-[#4D6A6D]/50 transition-colors"
                 title="Current active tournament"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+                <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
                 <span className="max-w-[120px] truncate">{activeTournament.name}</span>
               </div>
             ) : null}
@@ -164,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {userProfile && (
               <button
                 onClick={onOpenCustomizer}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/10 hover:border-[#D4AF37]/50 bg-[#060b18]/80 hover:bg-white/5 transition-all cursor-pointer group"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[#4D6A6D]/40 hover:border-[#D4AF37]/50 bg-[#060b18]/90 hover:bg-[#4D6A6D]/20 transition-all cursor-pointer group"
                 title="Customize Family Majlis & AI Judge"
               >
                 <span 
@@ -174,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {userProfile.emblemEmoji}
                 </span>
                 <div className="text-left hidden sm:block">
-                  <div className="text-[11px] font-extrabold text-white group-hover:text-[#fce09b] leading-tight truncate max-w-[110px]">
+                  <div className="text-[11px] font-extrabold text-[#EAE0CC] group-hover:text-[#D4AF37] leading-tight truncate max-w-[110px]">
                     {userProfile.familyClanName}
                   </div>
                   <div className="text-[9px] text-[#A0A083] leading-none">
@@ -198,38 +199,38 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Bar */}
-      <div className="flex lg:hidden border-t border-white/5 px-2 py-2 justify-around bg-[#080e22]">
+      <div className="flex lg:hidden border-t border-[#4D6A6D]/30 px-2 py-2 justify-around bg-[#080e22]">
         <button
           onClick={() => onNavigate('dashboard')}
-          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'dashboard' ? 'text-[#D4AF37] font-bold' : 'text-slate-400'}`}
+          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'dashboard' ? 'text-[#D4AF37] font-bold' : 'text-[#A0A083]'}`}
         >
           <Home className="w-4 h-4 mb-0.5" />
           Home
         </button>
         <button
           onClick={() => onNavigate('explorer')}
-          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'explorer' ? 'text-[#4D6A6D] font-bold' : 'text-slate-400'}`}
+          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'explorer' ? 'text-[#4D6A6D] font-bold' : 'text-[#A0A083]'}`}
         >
           <Globe2 className="w-4 h-4 mb-0.5" />
           Explore
         </button>
         <button
           onClick={() => onNavigate('surpriseme')}
-          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'surpriseme' ? 'text-[#C9ADA1] font-bold' : 'text-slate-400'}`}
+          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'surpriseme' ? 'text-[#C9ADA1] font-bold' : 'text-[#A0A083]'}`}
         >
           <Dices className="w-4 h-4 mb-0.5" />
           Surprise
         </button>
         <button
           onClick={() => onNavigate('creator')}
-          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'creator' ? 'text-[#D4AF37] font-bold' : 'text-slate-400'}`}
+          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'creator' ? 'text-[#D4AF37] font-bold' : 'text-[#A0A083]'}`}
         >
           <Sparkles className="w-4 h-4 mb-0.5" />
           Creator
         </button>
         <button
           onClick={() => onNavigate('camera-arena')}
-          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'camera-arena' ? 'text-[#EAE0CC] font-bold' : 'text-slate-400'}`}
+          className={`flex flex-col items-center py-1 px-2 rounded text-[11px] ${currentTab === 'camera-arena' ? 'text-[#EAE0CC] font-bold' : 'text-[#A0A083]'}`}
         >
           <Video className="w-4 h-4 mb-0.5" />
           Arena

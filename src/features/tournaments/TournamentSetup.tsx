@@ -25,7 +25,7 @@ interface TeamDraft {
   players: { name: string; number?: number }[];
 }
 
-const DEFAULT_COLORS = ['#D4AF37', '#3B82F6', '#10B981', '#EC4899', '#8B5CF6', '#F97316'];
+const DEFAULT_COLORS = ['#D4AF37', '#4D6A6D', '#C9ADA1', '#798478', '#A0A083', '#EAE0CC'];
 
 export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCreated, onCancel }) => {
   const [tournamentName, setTournamentName] = useState('Emirati Family Arena Cup 2026');
@@ -52,7 +52,7 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
     {
       name: 'Al Fursan (Knights)',
       arabicName: 'فرسان الفريج',
-      color: '#3B82F6',
+      color: '#4D6A6D',
       players: [
         { name: 'Hamad (Captain)', number: 9 },
         { name: 'Sultan', number: 8 },
@@ -194,30 +194,30 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-6">
+      <div className="flex items-center justify-between border-b border-[#4D6A6D]/30 pb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#d4af37] uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] uppercase tracking-wider mb-1">
             <Trophy className="w-4 h-4" />
             Tournament Creator
           </div>
-          <h1 className="text-3xl font-black text-white tracking-tight">
+          <h1 className="text-3xl font-black text-[#EAE0CC] tracking-tight">
             Create Family Tournament
           </h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <p className="text-sm text-[#A0A083] mt-1">
             Set up teams, family roster, and games rotation. All match results will calculate official tournament standings.
           </p>
         </div>
         <button
           onClick={onCancel}
-          className="text-sm text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/5"
+          className="text-sm text-[#A0A083] hover:text-[#EAE0CC] px-3.5 py-1.5 rounded-xl hover:bg-[#4D6A6D]/20 cursor-pointer transition-colors"
         >
           Cancel
         </button>
       </div>
 
       {error && (
-        <div className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-sm flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+        <div className="p-4 rounded-2xl bg-[#C9ADA1]/15 border border-[#C9ADA1]/40 text-[#EAE0CC] text-sm flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-[#C9ADA1] shrink-0" />
           <span>{error}</span>
         </div>
       )}
@@ -225,15 +225,15 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
       <form onSubmit={handleSubmit} className="space-y-8">
         
         {/* Section 1: Tournament Name & Format */}
-        <div className="navy-card rounded-xl p-6 border border-white/10 space-y-6">
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-[#d4af37]/20 text-[#fce09b] text-xs flex items-center justify-center font-bold">1</span>
+        <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-6 bg-[#0a1226]">
+          <h2 className="text-lg font-bold text-[#EAE0CC] flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#EAE0CC] text-xs flex items-center justify-center font-bold">1</span>
             Tournament Details
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#A0A083]">
                 Tournament Name
               </label>
               <input
@@ -241,19 +241,19 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
                 value={tournamentName}
                 onChange={e => setTournamentName(e.target.value)}
                 placeholder="e.g. Al Wasl Heritage Family Cup"
-                className="w-full px-4 py-3 rounded-xl bg-[#060b18] border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-[#d4af37] text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] placeholder-[#798478] focus:outline-none focus:border-[#D4AF37] text-sm"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#A0A083]">
                 Match Format
               </label>
               <select
                 value={format}
                 onChange={e => setFormat(e.target.value as TournamentFormat)}
-                className="w-full px-4 py-3 rounded-xl bg-[#060b18] border border-white/10 text-white focus:outline-none focus:border-[#d4af37] text-sm cursor-pointer"
+                className="w-full px-4 py-3 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] focus:outline-none focus:border-[#D4AF37] text-sm cursor-pointer"
               >
                 <option value="family_cup">Multi-Game Family Cup (Rotate All Games)</option>
                 <option value="round_robin">Round Robin (All Teams Play Each Other)</option>
@@ -264,13 +264,13 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
         </div>
 
         {/* Section 2: Traditional Games Selection */}
-        <div className="navy-card rounded-xl p-6 border border-white/10 space-y-4">
+        <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-4 bg-[#0a1226]">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-[#d4af37]/20 text-[#fce09b] text-xs flex items-center justify-center font-bold">2</span>
+            <h2 className="text-lg font-bold text-[#EAE0CC] flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#EAE0CC] text-xs flex items-center justify-center font-bold">2</span>
               Include Traditional Games
             </h2>
-            <span className="text-xs text-[#d4af37] font-semibold">
+            <span className="text-xs text-[#D4AF37] font-semibold">
               {selectedGames.length} selected
             </span>
           </div>
@@ -284,23 +284,23 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
                   onClick={() => handleToggleGame(game.id)}
                   className={`p-3.5 rounded-xl border cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-[#d4af37]/10 border-[#d4af37] text-white'
-                      : 'bg-[#060b18]/60 border-white/5 text-slate-400 hover:border-white/20'
+                      ? 'bg-[#4D6A6D]/30 border-[#D4AF37] text-[#EAE0CC]'
+                      : 'bg-[#060b18] border-[#4D6A6D]/20 text-[#A0A083] hover:border-[#4D6A6D]/50'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4af37]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37]">
                       {game.category}
                     </span>
                     <input
                       type="checkbox"
                       checked={isSelected}
                       onChange={() => {}}
-                      className="accent-[#d4af37] cursor-pointer"
+                      className="accent-[#D4AF37] cursor-pointer"
                     />
                   </div>
-                  <div className="font-bold text-sm text-white">{game.name}</div>
-                  <div className="text-xs text-[#d4af37] font-arabic">{game.arabicName}</div>
+                  <div className="font-bold text-sm text-[#EAE0CC]">{game.name}</div>
+                  <div className="text-xs text-[#D4AF37] font-arabic">{game.arabicName}</div>
                 </div>
               );
             })}
@@ -308,18 +308,18 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
         </div>
 
         {/* Section 3: Teams & Family Players */}
-        <div className="navy-card rounded-xl p-6 border border-white/10 space-y-6">
+        <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-6 bg-[#0a1226]">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-[#d4af37]/20 text-[#fce09b] text-xs flex items-center justify-center font-bold">3</span>
+            <h2 className="text-lg font-bold text-[#EAE0CC] flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#EAE0CC] text-xs flex items-center justify-center font-bold">3</span>
               Participating Teams & Roster
             </h2>
             <button
               type="button"
               onClick={handleAddTeam}
-              className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-bold text-white flex items-center gap-1.5 cursor-pointer"
+              className="px-3.5 py-2 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 border border-[#798478]/40 text-xs font-bold text-[#EAE0CC] flex items-center gap-1.5 cursor-pointer transition-colors"
             >
-              <Plus className="w-3.5 h-3.5" />
+              <Plus className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Add Team</span>
             </button>
           </div>
@@ -328,7 +328,7 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
             {teams.map((team, tIdx) => (
               <div 
                 key={tIdx} 
-                className="p-5 rounded-xl bg-[#060b18] border border-white/10 space-y-4"
+                className="p-5 rounded-2xl bg-[#060b18] border border-[#4D6A6D]/30 space-y-4"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -339,7 +339,7 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
                       className="w-7 h-7 rounded border-none cursor-pointer bg-transparent"
                       title="Choose team color"
                     />
-                    <span className="text-xs font-bold uppercase text-slate-400">
+                    <span className="text-xs font-bold uppercase text-[#A0A083]">
                       Team #{tIdx + 1}
                     </span>
                   </div>
@@ -347,7 +347,7 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
                     <button
                       type="button"
                       onClick={() => handleRemoveTeam(tIdx)}
-                      className="text-slate-500 hover:text-red-400 p-1 rounded cursor-pointer"
+                      className="text-[#A0A083] hover:text-[#C9ADA1] p-1 rounded cursor-pointer transition-colors"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -356,40 +356,40 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
 
                 <div className="space-y-3">
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-400 uppercase">Team Name</label>
+                    <label className="text-[11px] font-semibold text-[#A0A083] uppercase">Team Name</label>
                     <input
                       type="text"
                       value={team.name}
                       onChange={e => handleTeamNameChange(tIdx, e.target.value)}
                       placeholder="e.g. Al Saqr"
-                      className="w-full mt-1 px-3 py-2 rounded-lg bg-[#0b1428] border border-white/10 text-white text-sm focus:outline-none focus:border-[#d4af37]"
+                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm focus:outline-none focus:border-[#D4AF37]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-slate-400 uppercase">Arabic Name (Optional)</label>
+                    <label className="text-[11px] font-semibold text-[#A0A083] uppercase">Arabic Name (Optional)</label>
                     <input
                       type="text"
                       value={team.arabicName || ''}
                       onChange={e => handleTeamArabicNameChange(tIdx, e.target.value)}
                       placeholder="e.g. صقور الفريج"
-                      className="w-full mt-1 px-3 py-2 rounded-lg bg-[#0b1428] border border-white/10 text-white text-sm focus:outline-none focus:border-[#d4af37]"
+                      className="w-full mt-1 px-3 py-2 rounded-xl bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm focus:outline-none focus:border-[#D4AF37]"
                     />
                   </div>
                 </div>
 
                 {/* Player Roster */}
-                <div className="pt-2 border-t border-white/5 space-y-2">
+                <div className="pt-2 border-t border-[#4D6A6D]/20 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-300 flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <span className="text-xs font-bold text-[#EAE0CC] flex items-center gap-1">
+                      <Users className="w-3.5 h-3.5 text-[#D4AF37]" />
                       Family Players ({team.players.length})
                     </span>
                     <button
                       type="button"
                       onClick={() => handleAddPlayer(tIdx)}
-                      className="text-[11px] text-[#d4af37] hover:underline font-semibold"
+                      className="text-[11px] text-[#D4AF37] hover:underline font-semibold"
                     >
                       + Add Player
                     </button>
@@ -403,13 +403,13 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
                           value={player.name}
                           onChange={e => handlePlayerNameChange(tIdx, pIdx, e.target.value)}
                           placeholder="Player name"
-                          className="flex-1 px-2.5 py-1.5 rounded bg-[#0b1428] border border-white/5 text-xs text-white focus:outline-none focus:border-[#d4af37]"
+                          className="flex-1 px-2.5 py-1.5 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/30 text-xs text-[#EAE0CC] focus:outline-none focus:border-[#D4AF37]"
                         />
                         {team.players.length > 1 && (
                           <button
                             type="button"
                             onClick={() => handleRemovePlayer(tIdx, pIdx)}
-                            className="text-slate-500 hover:text-red-400 p-1"
+                            className="text-[#A0A083] hover:text-[#C9ADA1] p-1 cursor-pointer"
                           >
                             <Trash2 className="w-3 h-3" />
                           </button>
@@ -429,7 +429,7 @@ export const TournamentSetup: React.FC<TournamentSetupProps> = ({ onTournamentCr
           <button
             type="button"
             onClick={onCancel}
-            className="px-6 py-3 rounded-xl border border-white/15 text-slate-300 hover:text-white font-semibold text-sm cursor-pointer"
+            className="px-6 py-3 rounded-xl border border-[#4D6A6D]/40 text-[#A0A083] hover:text-[#EAE0CC] font-semibold text-sm cursor-pointer transition-colors"
           >
             Cancel
           </button>

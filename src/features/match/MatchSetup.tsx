@@ -45,14 +45,14 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
   const defaultTeamA = currentTournament?.teams[0] || {
     id: 'team-a',
     name: `${userProfile.emblemEmoji} ${userProfile.familyClanName}`,
-    color: userProfile.primaryColor || '#4D6A6D',
+    color: userProfile.primaryColor || '#D4AF37',
     players: userProfile.defaultRoster.slice(0, 2).map((name, i) => ({ id: `p${i+1}`, name }))
   };
 
   const defaultTeamB = currentTournament?.teams[1] || {
     id: 'team-b',
     name: 'Desert Knights',
-    color: '#3B82F6',
+    color: '#4D6A6D',
     players: [{ id: 'p3', name: 'Hamad' }, { id: 'p4', name: 'Sultan' }]
   };
 
@@ -104,7 +104,7 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
         };
         teamBObj = currentTournament.teams.find(t => t.id === teamBId) || {
           name: customTeamBName,
-          color: '#3B82F6'
+          color: '#4D6A6D'
         };
       } else {
         teamAObj = {
@@ -113,7 +113,7 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
         };
         teamBObj = {
           name: customTeamBName.trim() || 'Team B',
-          color: '#3B82F6'
+          color: '#4D6A6D'
         };
       }
 
@@ -135,30 +135,30 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Top Breadcrumb & Title */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-6">
+      <div className="flex items-center justify-between border-b border-[#4D6A6D]/30 pb-6">
         <div>
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white mb-2 cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A0A083] hover:text-[#EAE0CC] mb-2 cursor-pointer transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Games
           </button>
-          <h1 className="text-3xl font-black text-white tracking-tight flex items-center gap-3">
+          <h1 className="text-3xl font-black text-[#EAE0CC] tracking-tight flex items-center gap-3">
             <span>Match Setup & Arena Chamber</span>
-            <span className="text-xs px-2.5 py-1 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/30 text-[#fce09b] font-mono">
+            <span className="text-xs px-2.5 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/30 text-[#EAE0CC] font-mono">
               ID: {matchId}
             </span>
           </h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <p className="text-sm text-[#A0A083] mt-1">
             Configure participating teams, review specialized camera angles, and confirm recording permission.
           </p>
         </div>
       </div>
 
       {error && (
-        <div className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-sm flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+        <div className="p-4 rounded-2xl bg-[#C9ADA1]/15 border border-[#C9ADA1]/40 text-[#EAE0CC] text-sm flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-[#C9ADA1] shrink-0" />
           <span>{error}</span>
         </div>
       )}
@@ -169,21 +169,21 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
         <div className="md:col-span-2 space-y-6">
           
           {/* Game & Tournament Selector */}
-          <div className="navy-card rounded-xl p-6 border border-white/10 space-y-4">
-            <h2 className="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-[#d4af37]/20 text-[#fce09b] text-xs flex items-center justify-center font-bold">1</span>
+          <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-4 bg-[#0a1226]">
+            <h2 className="text-base font-bold text-[#EAE0CC] uppercase tracking-wider flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#EAE0CC] text-xs flex items-center justify-center font-bold">1</span>
               Game & Tournament Selection
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-bold uppercase text-slate-400 block mb-1">
+                <label className="text-xs font-bold uppercase text-[#A0A083] block mb-1">
                   Selected Game
                 </label>
                 <select
                   value={selectedGameId}
                   onChange={e => setSelectedGameId(e.target.value as GameId)}
-                  className="w-full px-3 py-2.5 rounded-xl bg-[#060b18] border border-white/10 text-white text-sm focus:outline-none focus:border-[#d4af37]"
+                  className="w-full px-3 py-2.5 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm focus:outline-none focus:border-[#D4AF37]"
                 >
                   {allAvailableGames.map(g => (
                     <option key={g.id} value={g.id}>
@@ -194,13 +194,13 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-bold uppercase text-slate-400 block mb-1">
+                <label className="text-xs font-bold uppercase text-[#A0A083] block mb-1">
                   Tournament Context
                 </label>
                 <select
                   value={selectedTournamentId}
                   onChange={e => setSelectedTournamentId(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl bg-[#060b18] border border-white/10 text-white text-sm focus:outline-none focus:border-[#d4af37]"
+                  className="w-full px-3 py-2.5 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm focus:outline-none focus:border-[#D4AF37]"
                 >
                   <option value="">Quick Match (Friendly Exhibition)</option>
                   {tournaments.map(t => (
@@ -214,25 +214,25 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
           </div>
 
           {/* Participating Teams Confirmation */}
-          <div className="navy-card rounded-xl p-6 border border-white/10 space-y-4">
+          <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-4 bg-[#0a1226]">
             <div className="flex items-center justify-between">
-              <h2 className="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-[#d4af37]/20 text-[#fce09b] text-xs flex items-center justify-center font-bold">2</span>
+              <h2 className="text-base font-bold text-[#EAE0CC] uppercase tracking-wider flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#EAE0CC] text-xs flex items-center justify-center font-bold">2</span>
                 Participating Teams Confirmation
               </h2>
-              <span className="text-xs text-amber-400 font-semibold">
+              <span className="text-xs text-[#D4AF37] font-semibold">
                 *Required before recording
               </span>
             </div>
 
             {currentTournament ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#060b18] border border-white/10 space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase">Team 1 (Side A)</label>
+                <div className="p-4 rounded-xl bg-[#060b18] border border-[#4D6A6D]/30 space-y-2">
+                  <label className="text-xs font-bold text-[#A0A083] uppercase">Team 1 (Side A)</label>
                   <select
                     value={teamAId}
                     onChange={e => setTeamAId(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg bg-[#0b1428] border border-white/10 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm"
                   >
                     {currentTournament.teams.map(team => (
                       <option key={team.id} value={team.id}>
@@ -240,17 +240,17 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
                       </option>
                     ))}
                   </select>
-                  <div className="text-[11px] text-slate-400">
+                  <div className="text-[11px] text-[#A0A083]">
                     Roster: {currentTournament.teams.find(t => t.id === teamAId)?.players.map(p => p.name).join(', ') || 'Team Players'}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#060b18] border border-white/10 space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase">Team 2 (Side B)</label>
+                <div className="p-4 rounded-xl bg-[#060b18] border border-[#4D6A6D]/30 space-y-2">
+                  <label className="text-xs font-bold text-[#A0A083] uppercase">Team 2 (Side B)</label>
                   <select
                     value={teamBId}
                     onChange={e => setTeamBId(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg bg-[#0b1428] border border-white/10 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm"
                   >
                     {currentTournament.teams.map(team => (
                       <option key={team.id} value={team.id}>
@@ -258,7 +258,7 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
                       </option>
                     ))}
                   </select>
-                  <div className="text-[11px] text-slate-400">
+                  <div className="text-[11px] text-[#A0A083]">
                     Roster: {currentTournament.teams.find(t => t.id === teamBId)?.players.map(p => p.name).join(', ') || 'Team Players'}
                   </div>
                 </div>
@@ -266,58 +266,58 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase">Team A Name</label>
+                  <label className="text-xs font-semibold text-[#A0A083] uppercase">Team A Name</label>
                   <input
                     type="text"
                     value={customTeamAName}
                     onChange={e => setCustomTeamAName(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg bg-[#060b18] border border-white/10 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase">Team B Name</label>
+                  <label className="text-xs font-semibold text-[#A0A083] uppercase">Team B Name</label>
                   <input
                     type="text"
                     value={customTeamBName}
                     onChange={e => setCustomTeamBName(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg bg-[#060b18] border border-white/10 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm"
                   />
                 </div>
               </div>
             )}
 
             {/* Checkbox: User confirms participating teams */}
-            <label className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/10 cursor-pointer hover:bg-white/[0.04]">
+            <label className="flex items-start gap-3 p-3.5 rounded-xl bg-[#060b18] border border-[#4D6A6D]/30 cursor-pointer hover:bg-[#4D6A6D]/10 transition-colors">
               <input
                 type="checkbox"
                 checked={teamsConfirmed}
                 onChange={e => setTeamsConfirmed(e.target.checked)}
-                className="mt-0.5 accent-[#d4af37] w-4 h-4 cursor-pointer"
+                className="mt-0.5 accent-[#D4AF37] w-4 h-4 cursor-pointer"
               />
-              <span className="text-xs text-slate-200 leading-relaxed">
+              <span className="text-xs text-[#EAE0CC] leading-relaxed">
                 I confirm that the selected teams and players above are active participants for this match.
               </span>
             </label>
           </div>
 
           {/* Privacy & Family Recording Consent */}
-          <div className="navy-card rounded-xl p-6 border border-white/10 space-y-3">
-            <h2 className="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+          <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-3 bg-[#0a1226]">
+            <h2 className="text-base font-bold text-[#EAE0CC] uppercase tracking-wider flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#798478]" />
               Family Recording & Privacy Consent
             </h2>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#A0A083] leading-relaxed">
               In accordance with child protection and family competition guidelines, videos recorded in this applet remain under host supervision, are not published publicly, and can be deleted at any time.
             </p>
 
-            <label className="flex items-start gap-3 p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 cursor-pointer hover:bg-emerald-950/30">
+            <label className="flex items-start gap-3 p-3.5 rounded-xl bg-[#798478]/20 border border-[#798478]/40 cursor-pointer hover:bg-[#798478]/30 transition-colors">
               <input
                 type="checkbox"
                 checked={familyConsentConfirmed}
                 onChange={e => setFamilyConsentConfirmed(e.target.checked)}
-                className="mt-0.5 accent-emerald-500 w-4 h-4 cursor-pointer"
+                className="mt-0.5 accent-[#798478] w-4 h-4 cursor-pointer"
               />
-              <span className="text-xs text-emerald-200 font-medium leading-relaxed">
+              <span className="text-xs text-[#EAE0CC] font-medium leading-relaxed">
                 I confirm that all participants (and parents/guardians of minors) have granted permission to be recorded for gameplay judging.
               </span>
             </label>
@@ -329,25 +329,25 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
         <div className="space-y-6">
           
           {/* Camera Instructions Card */}
-          <div className="navy-card rounded-xl p-6 border border-[#d4af37]/30 space-y-4">
+          <div className="navy-card rounded-2xl p-6 border border-[#D4AF37]/35 space-y-4 bg-[#0a1226]">
             <div className="flex items-center gap-2">
-              <Camera className="w-5 h-5 text-[#d4af37]" />
-              <h3 className="font-bold text-white text-sm uppercase tracking-wider">
+              <Camera className="w-5 h-5 text-[#D4AF37]" />
+              <h3 className="font-bold text-[#EAE0CC] text-sm uppercase tracking-wider">
                 Camera Setup: {selectedGame.name}
               </h3>
             </div>
 
-            <div className="p-3 rounded-lg bg-[#060b18] border border-white/5 space-y-2 text-xs">
-              <p className="text-[#fce09b] font-bold">
+            <div className="p-3 rounded-xl bg-[#060b18] border border-[#4D6A6D]/30 space-y-2 text-xs">
+              <p className="text-[#D4AF37] font-bold">
                 {selectedGame.recommendedAngle}
               </p>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-[#EAE0CC] leading-relaxed">
                 {selectedGame.cameraSetupInstructions}
               </p>
             </div>
 
-            <div className="text-[11px] text-slate-400 space-y-1">
-              <div className="font-bold text-slate-300">Tips for AI Detector accuracy:</div>
+            <div className="text-[11px] text-[#A0A083] space-y-1">
+              <div className="font-bold text-[#EAE0CC]">Tips for AI Detector accuracy:</div>
               <ul className="list-disc list-inside space-y-0.5">
                 <li>Avoid backlighting or direct sun glare.</li>
                 <li>Keep camera stationary (use tripod or flat surface).</li>
@@ -357,8 +357,8 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
           </div>
 
           {/* Action Launch Buttons */}
-          <div className="navy-card rounded-xl p-6 border border-white/10 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+          <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-3 bg-[#0a1226]">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#A0A083] mb-2">
               Choose Capture Mode:
             </h4>
 
@@ -366,9 +366,9 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
             <button
               onClick={() => handleAction('camera')}
               disabled={isCreating}
-              className="w-full py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer border border-white/10 transition-colors"
+              className="w-full py-3 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 text-[#EAE0CC] text-xs font-bold flex items-center justify-center gap-2 cursor-pointer border border-[#798478]/40 transition-colors"
             >
-              <Camera className="w-4 h-4 text-[#d4af37]" />
+              <Camera className="w-4 h-4 text-[#D4AF37]" />
               <span>Set Up & Test Camera Feed</span>
             </button>
 
@@ -386,9 +386,9 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
             <button
               onClick={() => handleAction('upload')}
               disabled={isCreating}
-              className="w-full py-3 rounded-xl bg-[#0a1532] hover:bg-[#10204a] text-slate-200 text-xs font-bold flex items-center justify-center gap-2 cursor-pointer border border-white/10 transition-colors"
+              className="w-full py-3 rounded-xl bg-[#060b18] hover:bg-[#0f1b38] text-[#EAE0CC] text-xs font-bold flex items-center justify-center gap-2 cursor-pointer border border-[#4D6A6D]/40 transition-colors"
             >
-              <Upload className="w-4 h-4 text-blue-400" />
+              <Upload className="w-4 h-4 text-[#C9ADA1]" />
               <span>Upload Existing Video File</span>
             </button>
           </div>

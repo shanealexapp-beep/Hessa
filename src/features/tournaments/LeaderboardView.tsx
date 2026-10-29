@@ -71,16 +71,16 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
     <div className="max-w-5xl mx-auto space-y-8">
       
       {/* Header & Tournament Selector */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#4D6A6D]/30 pb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#d4af37] uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] uppercase tracking-wider mb-1">
             <Trophy className="w-4 h-4" />
-            Official Standings & Bracket
+            Official Standings & Brackets
           </div>
-          <h1 className="text-3xl font-black text-white tracking-tight">
+          <h1 className="text-3xl font-black text-[#EAE0CC] tracking-tight">
             Tournament Scoreboard
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#A0A083] mt-1">
             Rankings calculated automatically using the deterministic scoring engine.
           </p>
         </div>
@@ -90,7 +90,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
             <select
               value={selectedTournamentId}
               onChange={e => setSelectedTournamentId(e.target.value)}
-              className="px-3 py-2 rounded-xl bg-[#060b18] border border-white/10 text-white text-xs font-bold focus:outline-none focus:border-[#d4af37]"
+              className="px-3 py-2 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs font-bold focus:outline-none focus:border-[#D4AF37]"
             >
               {tournaments.map(t => (
                 <option key={t.id} value={t.id}>
@@ -111,45 +111,45 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
       </div>
 
       {error && (
-        <div className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+        <div className="p-4 rounded-xl bg-[#C9ADA1]/15 border border-[#C9ADA1]/40 text-[#EAE0CC] text-xs flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-[#C9ADA1] shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {/* Main Leaderboard Table */}
-      <div className="navy-card rounded-2xl border border-white/10 overflow-hidden shadow-xl">
-        <div className="p-6 border-b border-white/10 flex items-center justify-between">
+      <div className="navy-card rounded-2xl border border-[#4D6A6D]/40 overflow-hidden shadow-xl bg-[#0a1226]">
+        <div className="p-6 border-b border-[#4D6A6D]/30 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+            <h2 className="text-lg font-bold text-[#EAE0CC] flex items-center gap-2">
               <span>{currentTournament?.name || 'Tournament'}</span>
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5 capitalize">
+            <p className="text-xs text-[#A0A083] mt-0.5 capitalize">
               Format: {currentTournament?.format.replace('_', ' ')} • {completedCount} matches completed
             </p>
           </div>
 
           <button
             onClick={onNavigateArena}
-            className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold flex items-center gap-2 cursor-pointer transition-colors"
+            className="px-4 py-2 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 border border-[#798478]/40 text-[#EAE0CC] text-xs font-bold flex items-center gap-2 cursor-pointer transition-colors"
           >
-            <Trophy className="w-3.5 h-3.5 text-[#d4af37]" />
+            <Trophy className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Play Match</span>
           </button>
         </div>
 
         {isLoading ? (
-          <div className="p-12 text-center text-xs text-slate-400">
+          <div className="p-12 text-center text-xs text-[#A0A083]">
             Calculating tournament standings...
           </div>
         ) : leaderboard.length === 0 ? (
-          <div className="p-12 text-center text-xs text-slate-400">
+          <div className="p-12 text-center text-xs text-[#A0A083]">
             No standings available for this tournament yet.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#060b18]/70 uppercase tracking-wider font-extrabold text-slate-400 border-b border-white/5">
+              <thead className="bg-[#060b18] uppercase tracking-wider font-extrabold text-[#A0A083] border-b border-[#4D6A6D]/30">
                 <tr>
                   <th className="py-3.5 px-4 text-center w-14">Rank</th>
                   <th className="py-3.5 px-4">Team</th>
@@ -160,44 +160,44 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
                   <th className="py-3.5 px-4 text-center">Points For</th>
                   <th className="py-3.5 px-4 text-center">Against</th>
                   <th className="py-3.5 px-4 text-center">Diff</th>
-                  <th className="py-3.5 px-4 text-center text-[#fce09b] font-black">Tournament PTS</th>
+                  <th className="py-3.5 px-4 text-center text-[#EAE0CC] font-black">Tournament PTS</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-[#4D6A6D]/20">
                 {leaderboard.map((entry, index) => (
                   <tr 
                     key={entry.teamId}
-                    className="hover:bg-white/[0.03] transition-colors font-medium text-slate-300"
+                    className="hover:bg-[#4D6A6D]/10 transition-colors font-medium text-[#EAE0CC]"
                   >
                     <td className="py-4 px-4 text-center">
                       <span className={`w-6 h-6 rounded-full inline-flex items-center justify-center font-bold text-xs ${
                         index === 0 
-                          ? 'bg-[#d4af37] text-[#060b18] shadow' 
+                          ? 'bg-[#D4AF37] text-[#060b18] shadow' 
                           : index === 1 
-                          ? 'bg-slate-300 text-slate-900' 
+                          ? 'bg-[#EAE0CC] text-[#060b18]' 
                           : index === 2 
-                          ? 'bg-amber-700 text-white' 
-                          : 'bg-white/10 text-slate-400'
+                          ? 'bg-[#C9ADA1] text-[#060b18]' 
+                          : 'bg-[#798478]/30 text-[#A0A083]'
                       }`}>
                         {index + 1}
                       </span>
                     </td>
 
-                    <td className="py-4 px-4 font-bold text-white flex items-center gap-2.5">
-                      <span className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: entry.color }} />
+                    <td className="py-4 px-4 font-bold text-[#EAE0CC] flex items-center gap-2.5">
+                      <span className="w-3 h-3 rounded-full shrink-0 ring-2 ring-white/20" style={{ backgroundColor: entry.color }} />
                       <span className="text-sm">{entry.teamName}</span>
                     </td>
 
-                    <td className="py-4 px-4 text-center font-mono">{entry.played}</td>
-                    <td className="py-4 px-4 text-center font-mono text-emerald-400">{entry.won}</td>
-                    <td className="py-4 px-4 text-center font-mono text-slate-400">{entry.drawn}</td>
-                    <td className="py-4 px-4 text-center font-mono text-rose-400">{entry.lost}</td>
-                    <td className="py-4 px-4 text-center font-mono">{entry.pointsFor}</td>
-                    <td className="py-4 px-4 text-center font-mono">{entry.pointsAgainst}</td>
-                    <td className="py-4 px-4 text-center font-mono font-bold">
+                    <td className="py-4 px-4 text-center font-mono text-[#A0A083]">{entry.played}</td>
+                    <td className="py-4 px-4 text-center font-mono text-[#798478] font-bold">{entry.won}</td>
+                    <td className="py-4 px-4 text-center font-mono text-[#A0A083]">{entry.drawn}</td>
+                    <td className="py-4 px-4 text-center font-mono text-[#C9ADA1]">{entry.lost}</td>
+                    <td className="py-4 px-4 text-center font-mono text-[#A0A083]">{entry.pointsFor}</td>
+                    <td className="py-4 px-4 text-center font-mono text-[#A0A083]">{entry.pointsAgainst}</td>
+                    <td className="py-4 px-4 text-center font-mono font-bold text-[#EAE0CC]">
                       {entry.pointsDifference > 0 ? `+${entry.pointsDifference}` : entry.pointsDifference}
                     </td>
-                    <td className="py-4 px-4 text-center font-mono font-black text-sm text-[#fce09b]">
+                    <td className="py-4 px-4 text-center font-mono font-black text-sm text-[#D4AF37]">
                       {entry.tournamentPoints}
                     </td>
                   </tr>
@@ -210,13 +210,13 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
 
       {/* Matches History Section */}
       <div className="space-y-4">
-        <h3 className="text-xl font-bold text-white flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-[#d4af37]" />
+        <h3 className="text-xl font-bold text-[#EAE0CC] flex items-center gap-2">
+          <Calendar className="w-5 h-5 text-[#D4AF37]" />
           <span>Tournament Matches History</span>
         </h3>
 
         {matches.length === 0 ? (
-          <div className="navy-card rounded-xl p-8 text-center text-slate-400 text-xs">
+          <div className="navy-card rounded-2xl p-8 text-center text-[#A0A083] text-xs bg-[#0a1226]">
             No matches scheduled or played yet in this tournament.
           </div>
         ) : (
@@ -230,36 +230,36 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
                 <div
                   key={m.id}
                   onClick={() => onSelectMatch(m)}
-                  className="navy-card rounded-xl p-4 border border-white/5 hover:border-[#d4af37]/40 transition-all cursor-pointer space-y-3"
+                  className="navy-card rounded-2xl p-4 border border-[#4D6A6D]/30 hover:border-[#D4AF37]/50 transition-all cursor-pointer space-y-3 bg-[#0a1226]"
                 >
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-[#d4af37]">{game?.name}</span>
-                    <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full ${
+                    <span className="font-bold text-[#D4AF37]">{game?.name}</span>
+                    <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${
                       m.status === 'completed'
-                        ? 'bg-emerald-950/60 text-emerald-400 border border-emerald-500/30'
-                        : 'bg-amber-950/60 text-amber-300 border border-amber-500/30'
+                        ? 'bg-[#798478]/30 text-[#EAE0CC] border-[#798478]/50'
+                        : 'bg-[#4D6A6D]/30 text-[#EAE0CC] border-[#4D6A6D]/50'
                     }`}>
                       {m.status}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm font-bold text-white">
+                  <div className="flex items-center justify-between text-sm font-bold text-[#EAE0CC]">
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: m.teamA.color }} />
+                      <span className="w-2.5 h-2.5 rounded-full ring-1 ring-white/20" style={{ backgroundColor: m.teamA.color }} />
                       {m.teamA.name}
                     </span>
-                    <span className="font-mono text-base text-[#fce09b] px-3 py-1 rounded bg-[#060b18] border border-white/10">
+                    <span className="font-mono text-base text-[#EAE0CC] px-3 py-1 rounded-xl bg-[#060b18] border border-[#4D6A6D]/40">
                       {scoreA} - {scoreB}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: m.teamB.color }} />
+                      <span className="w-2.5 h-2.5 rounded-full ring-1 ring-white/20" style={{ backgroundColor: m.teamB.color }} />
                       {m.teamB.name}
                     </span>
                   </div>
 
-                  <div className="text-[11px] text-slate-500 flex items-center justify-between pt-1 border-t border-white/5">
+                  <div className="text-[11px] text-[#A0A083] flex items-center justify-between pt-1 border-t border-[#4D6A6D]/20">
                     <span>Duration: {m.durationSeconds ? `${m.durationSeconds}s` : 'Standard'}</span>
-                    <span className="text-[#d4af37] flex items-center gap-0.5">
+                    <span className="text-[#D4AF37] flex items-center gap-0.5 font-bold">
                       <span>View Results</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </span>

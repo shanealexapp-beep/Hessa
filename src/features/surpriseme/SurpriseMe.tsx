@@ -94,16 +94,16 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
           <Dices className="w-3.5 h-3.5 text-[#C9ADA1]" />
           Group Matchmaker & Smart Recommendations
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#EAE0CC] tracking-tight">
           Surprise Me: <span className="gold-gradient-text">Find Tonight's Game</span>
         </h1>
-        <p className="text-sm text-slate-300 max-w-xl mx-auto">
+        <p className="text-sm text-[#A0A083] max-w-xl mx-auto">
           Tell us about your gathering and discover the perfect traditional game suited for your family's space, energy, and group size.
         </p>
       </div>
 
       {/* Interactive Group Filter Controls */}
-      <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/30 space-y-4 shadow-xl">
+      <div className="navy-card rounded-2xl p-6 border border-[#4D6A6D]/40 space-y-4 shadow-xl bg-[#0a1226]">
         <div className="text-xs font-bold uppercase tracking-wider text-[#EAE0CC] flex items-center gap-2">
           <span>Configure Your Group Parameters:</span>
         </div>
@@ -112,14 +112,14 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
           
           {/* Group Size Filter */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold text-slate-400 uppercase flex items-center gap-1.5">
+            <label className="text-[11px] font-semibold text-[#A0A083] uppercase flex items-center gap-1.5">
               <Users className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Group Size</span>
             </label>
             <select
               value={groupSize}
               onChange={e => { setGroupSize(e.target.value as any); setCurrentIndex(0); }}
-              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
             >
               <option value="all">Any Group Size</option>
               <option value="pairs">Solo or Pairs (1-2 Players)</option>
@@ -130,14 +130,14 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
 
           {/* Energy Level Filter */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold text-slate-400 uppercase flex items-center gap-1.5">
+            <label className="text-[11px] font-semibold text-[#A0A083] uppercase flex items-center gap-1.5">
               <Zap className="w-3.5 h-3.5 text-[#C9ADA1]" />
               <span>Energy & Pace</span>
             </label>
             <select
               value={energyLevel}
               onChange={e => { setEnergyLevel(e.target.value as any); setCurrentIndex(0); }}
-              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
             >
               <option value="all">Any Energy Level</option>
               <option value="mind">Mind & Strategy (Quiet Focus)</option>
@@ -148,14 +148,14 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
 
           {/* Location Setting */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-semibold text-slate-400 uppercase flex items-center gap-1.5">
+            <label className="text-[11px] font-semibold text-[#A0A083] uppercase flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-[#A0A083]" />
               <span>Playing Space</span>
             </label>
             <select
               value={locationType}
               onChange={e => { setLocationType(e.target.value as any); setCurrentIndex(0); }}
-              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+              className="w-full px-3 py-2 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
             >
               <option value="all">Any Space</option>
               <option value="indoor">Indoor Living Room / Majlis</option>
@@ -171,7 +171,7 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
       {currentGame ? (
         <div className="relative">
           
-          <div className={`navy-card rounded-3xl p-8 border border-[#4D6A6D]/40 space-y-6 shadow-2xl transition-all duration-300 ${
+          <div className={`navy-card rounded-3xl p-8 border border-[#4D6A6D]/50 space-y-6 shadow-2xl transition-all duration-300 bg-[#0a1226] ${
             isRolling ? 'scale-95 opacity-80' : 'scale-100 opacity-100'
           }`}>
             
@@ -182,14 +182,14 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
                 <span className="text-xs font-bold text-[#EAE0CC]">
                   {currentGame.country || 'Traditional Heritage'}
                 </span>
-                <span className="text-slate-500">·</span>
+                <span className="text-[#798478]">·</span>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#C9ADA1]">
                   {currentGame.category}
                 </span>
               </div>
 
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold">
-                <Sparkles className="w-3 h-3 text-emerald-400" />
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#798478]/30 border border-[#798478]/50 text-[#EAE0CC] text-xs font-mono font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>{matchScore}% Match</span>
               </div>
             </div>
@@ -197,20 +197,20 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
             {/* Game Title & Native Script */}
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <h2 className="text-3xl sm:text-4xl font-black text-white">
+                <h2 className="text-3xl sm:text-4xl font-black text-[#EAE0CC]">
                   {currentGame.name}
                 </h2>
                 <span className="text-lg font-bold text-[#D4AF37] font-arabic">
                   {currentGame.arabicName}
                 </span>
               </div>
-              <p className="text-sm text-slate-300 italic">
+              <p className="text-sm text-[#A0A083] italic">
                 "{currentGame.tagline}"
               </p>
             </div>
 
             {/* Description & Cultural lore */}
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-[#A0A083] leading-relaxed">
               {currentGame.description}
             </p>
 
@@ -220,29 +220,29 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
                 <Heart className="w-3.5 h-3.5 text-[#C9ADA1] fill-[#C9ADA1]" />
                 <span>Why It Fits Your Gathering:</span>
               </span>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[#A0A083] leading-relaxed">
                 {currentGame.culturalConnections || currentGame.culturalBackground}
               </p>
             </div>
 
             {/* Key Game Attributes Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-[#060B18] border border-white/5 space-y-1">
-                <span className="text-[10px] uppercase text-slate-500 font-bold block">Players</span>
-                <span className="font-bold text-white">{currentGame.playersPerTeam}</span>
+              <div className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 space-y-1">
+                <span className="text-[10px] uppercase text-[#A0A083] font-bold block">Players</span>
+                <span className="font-bold text-[#EAE0CC]">{currentGame.playersPerTeam}</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#060B18] border border-white/5 space-y-1">
-                <span className="text-[10px] uppercase text-slate-500 font-bold block">Round Duration</span>
+              <div className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 space-y-1">
+                <span className="text-[10px] uppercase text-[#A0A083] font-bold block">Round Duration</span>
                 <span className="font-bold text-[#EAE0CC]">{currentGame.durationMinutes || 12} mins</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#060B18] border border-white/5 space-y-1">
-                <span className="text-[10px] uppercase text-slate-500 font-bold block">Equipment</span>
-                <span className="font-bold text-slate-300 truncate block" title={currentGame.equipmentNeeded}>
+              <div className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 space-y-1">
+                <span className="text-[10px] uppercase text-[#A0A083] font-bold block">Equipment</span>
+                <span className="font-bold text-[#A0A083] truncate block" title={currentGame.equipmentNeeded}>
                   {currentGame.equipmentNeeded || 'Standard'}
                 </span>
               </div>
-              <div className="p-3 rounded-xl bg-[#060B18] border border-white/5 space-y-1">
-                <span className="text-[10px] uppercase text-slate-500 font-bold block">AI Referee Angle</span>
+              <div className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 space-y-1">
+                <span className="text-[10px] uppercase text-[#A0A083] font-bold block">AI Referee Angle</span>
                 <span className="font-bold text-[#D4AF37] truncate block" title={currentGame.recommendedAngle}>
                   {currentGame.recommendedAngle}
                 </span>
@@ -250,13 +250,13 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
             </div>
 
             {/* Action Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#4D6A6D]/30">
               
               {/* Prev / Next / Random Controls */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 cursor-pointer"
+                  className="p-3 rounded-xl bg-[#4D6A6D]/20 hover:bg-[#4D6A6D]/40 text-[#A0A083] hover:text-[#EAE0CC] border border-[#4D6A6D]/30 cursor-pointer transition-colors"
                   title="Previous game"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -264,7 +264,7 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
 
                 <button
                   onClick={handleNext}
-                  className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2.5 rounded-xl bg-[#4D6A6D]/20 hover:bg-[#4D6A6D]/40 text-[#A0A083] hover:text-[#EAE0CC] border border-[#4D6A6D]/30 font-bold text-xs flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span>Pass / Next</span>
                   <ChevronRight className="w-4 h-4" />
@@ -273,7 +273,7 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
                 <button
                   onClick={handleRandomDice}
                   disabled={isRolling}
-                  className="px-4 py-2.5 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 text-[#EAE0CC] border border-[#4D6A6D]/40 font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2.5 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 text-[#EAE0CC] border border-[#798478]/40 font-bold text-xs flex items-center gap-1.5 cursor-pointer transition-colors"
                   title="Roll the dice for instant surprise"
                 >
                   <Dices className={`w-4 h-4 text-[#D4AF37] ${isRolling ? 'animate-spin' : ''}`} />
@@ -297,13 +297,13 @@ export const SurpriseMe: React.FC<SurpriseMeProps> = ({
           </div>
 
           {/* Cards Count Indicator */}
-          <div className="text-center text-xs text-slate-500 pt-3">
+          <div className="text-center text-xs text-[#A0A083] pt-3">
             Showing game {safeIndex + 1} of {recommendedGames.length} recommendations
           </div>
 
         </div>
       ) : (
-        <div className="navy-card rounded-2xl p-12 text-center text-slate-400 space-y-4">
+        <div className="navy-card rounded-2xl p-12 text-center text-[#A0A083] space-y-4 bg-[#0a1226]">
           <p>No games matched the selected filter criteria.</p>
           <button
             onClick={() => { setGroupSize('all'); setEnergyLevel('all'); setLocationType('all'); }}

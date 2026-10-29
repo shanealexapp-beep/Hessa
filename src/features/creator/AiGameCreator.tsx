@@ -135,37 +135,37 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
     <div className="max-w-4xl mx-auto space-y-8">
       
       {/* Title */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#4D6A6D]/30 pb-6">
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] uppercase tracking-wider mb-1">
             <Cpu className="w-4 h-4" />
             Universal AI Referee Architect
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-[#EAE0CC] tracking-tight">
             AI Game Creator & Universal Referee
           </h1>
-          <p className="text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+          <p className="text-sm text-[#A0A083] mt-1 max-w-2xl leading-relaxed">
             Describe any playground, majlis, or family game. FAREEG AI generates official scoring mechanics, camera placement angles, and automated computer-vision referee rules.
           </p>
         </div>
 
         <button
           onClick={onCancel}
-          className="text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 self-start cursor-pointer"
+          className="text-xs text-[#A0A083] hover:text-[#EAE0CC] px-3.5 py-1.5 rounded-xl border border-[#4D6A6D]/40 hover:bg-[#4D6A6D]/20 self-start cursor-pointer transition-colors"
         >
           Back
         </button>
       </div>
 
       {error && (
-        <div className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+        <div className="p-4 rounded-2xl bg-[#C9ADA1]/15 border border-[#C9ADA1]/40 text-[#EAE0CC] text-xs flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-[#C9ADA1] shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {/* Preset Inspiration Pills */}
-      <div className="navy-card rounded-2xl p-5 border border-[#4D6A6D]/30 space-y-3">
+      <div className="navy-card rounded-2xl p-5 border border-[#4D6A6D]/40 space-y-3 bg-[#0a1226]">
         <span className="text-xs font-bold uppercase text-[#EAE0CC] tracking-wider block">
           Quick Inspiration Presets:
         </span>
@@ -175,12 +175,12 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="p-3 rounded-xl bg-[#060B18] border border-white/5 hover:border-[#D4AF37]/40 text-left transition-colors cursor-pointer group"
+              className="p-3.5 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 hover:border-[#D4AF37]/50 text-left transition-colors cursor-pointer group"
             >
-              <div className="text-xs font-bold text-white group-hover:text-[#D4AF37] transition-colors">
+              <div className="text-xs font-bold text-[#EAE0CC] group-hover:text-[#D4AF37] transition-colors">
                 {p.title}
               </div>
-              <div className="text-[11px] text-slate-400 line-clamp-2 mt-1">
+              <div className="text-[11px] text-[#A0A083] line-clamp-2 mt-1">
                 {p.desc}
               </div>
             </button>
@@ -190,16 +190,16 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
 
       {/* Creator Form */}
       {!generatedGame && (
-        <form onSubmit={handleGenerate} className="navy-card rounded-2xl p-6 md:p-8 border border-white/10 space-y-6 shadow-xl">
+        <form onSubmit={handleGenerate} className="navy-card rounded-2xl p-6 md:p-8 border border-[#4D6A6D]/40 space-y-6 shadow-xl bg-[#0a1226]">
           <div className="space-y-2">
-            <label className="text-xs font-bold uppercase text-slate-300 block">
+            <label className="text-xs font-bold uppercase text-[#EAE0CC] block">
               Describe Your Game Concept & Rules *
             </label>
             <textarea
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="e.g. Players stand behind a marked line and slide wooden blocks to knock down standing cones. Knocking down the red king cone awards 3 points, normal cones award 1 point. If your foot crosses the sand line, it is a foul."
-              className="w-full p-4 rounded-xl bg-[#060B18] border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#4D6A6D] resize-none h-32"
+              className="w-full p-4 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-sm placeholder-[#798478] focus:outline-none focus:border-[#D4AF37] resize-none h-32"
               required
             />
           </div>
@@ -207,13 +207,13 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-400 uppercase">
+              <label className="text-xs font-semibold text-[#A0A083] uppercase">
                 Location & Setting
               </label>
               <select
                 value={location}
                 onChange={e => setLocation(e.target.value as any)}
-                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
               >
                 <option value="indoor">Indoor Living Room / Majlis</option>
                 <option value="tabletop">Tabletop / Floor Board</option>
@@ -222,7 +222,7 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-400 uppercase">
+              <label className="text-xs font-semibold text-[#A0A083] uppercase">
                 Equipment Needed
               </label>
               <input
@@ -230,12 +230,12 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
                 value={equipment}
                 onChange={e => setEquipment(e.target.value)}
                 placeholder="e.g. Cups, foam ball, stones"
-                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-400 uppercase">
+              <label className="text-xs font-semibold text-[#A0A083] uppercase">
                 Target Audience
               </label>
               <input
@@ -243,14 +243,14 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
                 value={targetAudience}
                 onChange={e => setTargetAudience(e.target.value)}
                 placeholder="e.g. Family, all ages"
-                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-white/10 text-white text-xs focus:outline-none focus:border-[#4D6A6D]"
+                className="w-full px-3 py-2.5 rounded-xl bg-[#060B18] border border-[#4D6A6D]/40 text-[#EAE0CC] text-xs focus:outline-none focus:border-[#D4AF37]"
               />
             </div>
 
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
-            <span className="text-xs text-slate-400">
+          <div className="flex items-center justify-between pt-4 border-t border-[#4D6A6D]/30">
+            <span className="text-xs text-[#A0A083]">
               Generated rules will be fully editable before you start playing.
             </span>
 
@@ -272,14 +272,14 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
 
       {/* Generated Result & Rule Customization Studio */}
       {generatedGame && (
-        <div className="navy-card rounded-2xl p-6 md:p-8 border border-[#4D6A6D]/40 space-y-6 shadow-2xl">
+        <div className="navy-card rounded-2xl p-6 md:p-8 border border-[#4D6A6D]/50 space-y-6 shadow-2xl bg-[#0a1226]">
           
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div className="flex items-center justify-between border-b border-[#4D6A6D]/30 pb-4">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#EAE0CC] bg-[#798478]/30 px-2.5 py-0.5 rounded-full border border-[#798478]/50">
                 Referee Generated & Configured
               </span>
-              <h2 className="text-2xl font-black text-white mt-1">
+              <h2 className="text-2xl font-black text-[#EAE0CC] mt-1">
                 {generatedGame.name}
               </h2>
               <p className="text-sm font-bold text-[#D4AF37] font-arabic mt-0.5">
@@ -289,7 +289,7 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
 
             <button
               onClick={() => setGeneratedGame(null)}
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-slate-300 flex items-center gap-1 cursor-pointer"
+              className="px-3.5 py-1.5 rounded-xl bg-[#4D6A6D]/30 hover:bg-[#4D6A6D]/50 text-xs text-[#EAE0CC] border border-[#798478]/40 flex items-center gap-1 cursor-pointer transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Regenerate</span>
@@ -297,25 +297,25 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
           </div>
 
           {/* Description & Cultural Story */}
-          <div className="space-y-2 text-xs text-slate-300">
-            <p className="italic">"{generatedGame.tagline}"</p>
+          <div className="space-y-2 text-xs text-[#EAE0CC]">
+            <p className="italic text-[#A0A083]">"{generatedGame.tagline}"</p>
             <p>{generatedGame.description}</p>
-            <div className="p-3 rounded-xl bg-[#060B18] border border-white/5 text-[11px] text-slate-400">
-              <strong className="text-white">Cultural Heritage Connection:</strong> {generatedGame.culturalConnections}
+            <div className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 text-[11px] text-[#A0A083]">
+              <strong className="text-[#EAE0CC]">Cultural Heritage Connection:</strong> {generatedGame.culturalConnections}
             </div>
           </div>
 
           {/* Camera Setup Instructions Card */}
-          <div className="p-4 rounded-xl bg-[#4D6A6D]/15 border border-[#4D6A6D]/30 space-y-2 text-xs">
+          <div className="p-4 rounded-2xl bg-[#4D6A6D]/20 border border-[#4D6A6D]/40 space-y-2 text-xs">
             <div className="flex items-center gap-1.5 font-bold text-[#EAE0CC]">
               <Camera className="w-4 h-4 text-[#D4AF37]" />
               <span>AI Referee Camera Placement & Tracking:</span>
             </div>
-            <p className="text-slate-300 leading-relaxed text-[11px]">
+            <p className="text-[#A0A083] leading-relaxed text-[11px]">
               {generatedGame.cameraSetupInstructions}
             </p>
             {generatedGame.aiDetectorGuidance && (
-              <p className="text-[#C9ADA1] text-[11px] font-mono pt-1 border-t border-white/5">
+              <p className="text-[#C9ADA1] text-[11px] font-mono pt-1 border-t border-[#4D6A6D]/20">
                 Computer Vision Focus: {generatedGame.aiDetectorGuidance}
               </p>
             )}
@@ -324,7 +324,7 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
           {/* Editable Scoring Rules */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#EAE0CC] flex items-center gap-1.5">
                 <Sliders className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Configurable Scoring Rules ({generatedGame.scoringRules.length}):</span>
               </span>
@@ -341,45 +341,45 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
               {generatedGame.scoringRules.map((rule, idx) => (
                 <div 
                   key={idx}
-                  className="p-3 rounded-xl bg-[#060B18] border border-white/5 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center text-xs"
+                  className="p-3 rounded-xl bg-[#060B18] border border-[#4D6A6D]/30 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center text-xs"
                 >
                   <div className="sm:col-span-5">
-                    <label className="text-[10px] text-slate-500 font-bold uppercase block mb-0.5">Event Name</label>
+                    <label className="text-[10px] text-[#A0A083] font-bold uppercase block mb-0.5">Event Name</label>
                     <input
                       type="text"
                       value={rule.label}
                       onChange={e => handleRuleChange(idx, 'label', e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0c162e] border border-white/10 text-white font-medium focus:outline-none focus:border-[#4D6A6D]"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] font-medium focus:outline-none focus:border-[#D4AF37]"
                     />
                   </div>
 
                   <div className="sm:col-span-5">
-                    <label className="text-[10px] text-slate-500 font-bold uppercase block mb-0.5">Description</label>
+                    <label className="text-[10px] text-[#A0A083] font-bold uppercase block mb-0.5">Description</label>
                     <input
                       type="text"
                       value={rule.description}
                       onChange={e => handleRuleChange(idx, 'description', e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0c162e] border border-white/10 text-slate-300 focus:outline-none focus:border-[#4D6A6D]"
+                      className="w-full px-2.5 py-1.5 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/40 text-[#A0A083] focus:outline-none focus:border-[#D4AF37]"
                     />
                   </div>
 
                   <div className="sm:col-span-2 flex items-center justify-between gap-2">
                     <div className="flex-1">
-                      <label className="text-[10px] text-slate-500 font-bold uppercase block mb-0.5">Points</label>
+                      <label className="text-[10px] text-[#A0A083] font-bold uppercase block mb-0.5">Points</label>
                       <input
                         type="number"
                         min="0"
                         max="10"
                         value={rule.points}
                         onChange={e => handleRuleChange(idx, 'points', Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-lg bg-[#0c162e] border border-white/10 text-white font-bold font-mono text-center focus:outline-none focus:border-[#4D6A6D]"
+                        className="w-full px-2.5 py-1.5 rounded-lg bg-[#0a1226] border border-[#4D6A6D]/40 text-[#EAE0CC] font-bold font-mono text-center focus:outline-none focus:border-[#D4AF37]"
                       />
                     </div>
                     {generatedGame.scoringRules.length > 1 && (
                       <button
                         type="button"
                         onClick={() => handleRemoveRule(idx)}
-                        className="text-slate-500 hover:text-red-400 p-1.5 mt-4"
+                        className="text-[#A0A083] hover:text-[#C9ADA1] p-1.5 mt-4 cursor-pointer"
                         title="Remove rule"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -392,8 +392,8 @@ export const AiGameCreator: React.FC<AiGameCreatorProps> = ({
           </div>
 
           {/* Action: Deploy Referee and Launch Match */}
-          <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-xs text-slate-400">
+          <div className="pt-4 border-t border-[#4D6A6D]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs text-[#A0A083]">
               Deploying saves this game into your active arena catalog.
             </span>
 
